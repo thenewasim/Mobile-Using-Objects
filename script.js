@@ -1,3 +1,36 @@
+function display(img,name,price,details){
+
+    const body = document.querySelector('body');
+
+    body.innerHTML += `
+    <div class="card-box">
+        <div class="img-box">
+            <img src="${img}" alt="">
+        </div>
+        <div class="name-box">
+            <h1>${name}</h1>
+        </div>
+        <div class="price-box">
+            <h4>${price}</h4>
+        </div>
+        <div class="detail-box">
+            <p>${details}</p>
+        </div>
+    </div>
+    `
+}
+
+function addPhone(){
+
+    const img = document.getElementById('imgm').value;
+    const name = document.getElementById('namem').value;
+    const price = document.getElementById('pricem').value;
+    const details = document.getElementById('detailsm').value;
+
+    display(img,name,price,details);
+
+}
+
 const myobj = [
     {
         img: 'https://d3fyizz0b46qgr.cloudfront.net/global/phones/54859789be41fdd9d1852843a4f88cd5.png',
@@ -46,40 +79,6 @@ const myobj = [
 
 ]
 
-const body = document.querySelector('body');
-
 myobj.forEach((element)=>{
-    body.innerHTML += `<div class="card-box">
-        <div class="img-box">
-            <img src="${element.img}" alt="">
-        </div>
-        <div class="name-box">
-            <h1>${element.name}</h1>
-        </div>
-        <div class="price-box">
-            <h4>${element.price}</h4>
-        </div>
-        <div class="detail-box">
-            <p>${element.details}</p>
-        </div>
-    </div>
-`
+    display(element.img, element.name , element.price , element.details)    
 })
-
-function addPhone(){
-    body.innerHTML += `<div class="card-box">
-        <div class="img-box">
-            <img src="${document.querySelector('#imgm').value}" alt="">
-        </div>
-        <div class="name-box">
-            <h1>${document.querySelector('#namem').value}</h1>
-        </div>
-        <div class="price-box">
-            <h4>${document.querySelector('#pricem').value}</h4>
-        </div>
-        <div class="detail-box">
-            <p>${document.querySelector('#detailsm').value}</p>
-        </div>
-    </div>
-`
-}
